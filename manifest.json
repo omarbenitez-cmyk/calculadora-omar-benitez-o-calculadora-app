@@ -2,6 +2,7 @@
   "name": "Calculadora Omar Benitez",
   "short_name": "Calculadora",
   "description": "Calculadora app como Progressive Web App",
+  "id": "./",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -20,6 +21,14 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "label": "Vista de la app Calculadora"
     }
   ],
   "categories": ["utilities"],
