@@ -3,6 +3,9 @@
 Repositorio (código fuente):  
 https://github.com/omarbenitez-cmyk/calculadora-omar-benitez-o-calculadora-app
 
+Link público de la PWA para pegar en PWABuilder (Home):
+https://omarbenitez-cmyk.github.io/calculadora-omar-benitez-o-calculadora-app/
+
 Para generar la APK en PWABuilder necesitas una URL pública de la app (no solo el repo).
 Si activas GitHub Pages en este repositorio, la URL quedará así:
 https://omarbenitez-cmyk.github.io/calculadora-omar-benitez-o-calculadora-app/
