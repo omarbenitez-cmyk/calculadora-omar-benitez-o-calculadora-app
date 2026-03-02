@@ -45,6 +45,13 @@ body {
   min-height: 1.2em;
 }
 
+.display .guidance {
+  color: #9ca3c9;
+  font-size: 0.82rem;
+  margin-top: 6px;
+  min-height: 1.2em;
+}
+
 .buttons {
   display: grid;
   gap: 12px;

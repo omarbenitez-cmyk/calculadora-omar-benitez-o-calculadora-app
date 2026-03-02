@@ -4,10 +4,31 @@ let shouldResetDisplay = false;
 
 const display = document.getElementById('display');
 const expressionEl = document.getElementById('expression');
+const guidanceEl = document.getElementById('guidance');
+const guidanceText = {
+  error: 'Presiona AC para comenzar de nuevo.',
+  idle: 'Siguiente: ingresa un número y una operación.',
+  result: 'Puedes seguir operando o pulsar AC.',
+  secondOperand: 'Siguiente: ingresa el segundo número y pulsa =.',
+  calculating: 'Calculando...'
+};
 
 function updateDisplay() {
   display.textContent = currentValue;
   expressionEl.textContent = expression;
+  updateGuidance();
+}
+
+function updateGuidance() {
+  if (currentValue === 'Error') {
+    guidanceEl.textContent = guidanceText.error;
+  } else if (expression === '') {
+    guidanceEl.textContent = shouldResetDisplay
+      ? guidanceText.result
+      : guidanceText.idle;
+  } else {
+    guidanceEl.textContent = guidanceText.secondOperand;
+  }
 }
 
 function appendDigit(digit) {
@@ -53,6 +74,7 @@ function calculate() {
   if (expression === '') return;
   const fullExpr = expression + currentValue;
   expressionEl.textContent = fullExpr + ' =';
+  guidanceEl.textContent = guidanceText.calculating;
   try {
     const result = safeEval(fullExpr);
     if (!isFinite(result) || isNaN(result)) {
@@ -66,6 +88,7 @@ function calculate() {
   expression = '';
   shouldResetDisplay = true;
   display.textContent = currentValue;
+  updateGuidance();
 }
 
 function clearAll() {
