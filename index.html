@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#1e1e2e" />
+    <meta name="description" content="Calculadora Omar Benitez - Progressive Web App" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Calculadora" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculadora</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="display">
+        <span class="expression" id="expression"></span>
+        <span id="display">0</span>
+      </div>
+      <div class="buttons">
+        <button class="clear" onclick="clearAll()">AC</button>
+        <button class="operator" onclick="toggleSign()">+/-</button>
+        <button class="operator" onclick="percent()">%</button>
+        <button class="operator" onclick="appendOperator('÷')">÷</button>
+
+        <button onclick="appendDigit('7')">7</button>
+        <button onclick="appendDigit('8')">8</button>
+        <button onclick="appendDigit('9')">9</button>
+        <button class="operator" onclick="appendOperator('×')">×</button>
+
+        <button onclick="appendDigit('4')">4</button>
+        <button onclick="appendDigit('5')">5</button>
+        <button onclick="appendDigit('6')">6</button>
+        <button class="operator" onclick="appendOperator('-')">−</button>
+
+        <button onclick="appendDigit('1')">1</button>
+        <button onclick="appendDigit('2')">2</button>
+        <button onclick="appendDigit('3')">3</button>
+        <button class="operator" onclick="appendOperator('+')">+</button>
+
+        <button onclick="backspace()">⌫</button>
+        <button onclick="appendDigit('0')">0</button>
+        <button onclick="appendDigit('.')">.</button>
+        <button class="equals" onclick="calculate()">=</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
