@@ -5,6 +5,13 @@ let shouldResetDisplay = false;
 const display = document.getElementById('display');
 const expressionEl = document.getElementById('expression');
 const guidanceEl = document.getElementById('guidance');
+const guidanceText = {
+  error: 'Presiona AC para comenzar de nuevo.',
+  idle: 'Siguiente: ingresa un número y una operación.',
+  result: 'Puedes seguir operando o pulsar AC.',
+  secondOperand: 'Siguiente: ingresa el segundo número y pulsa =.',
+  calculating: 'Calculando...'
+};
 
 function updateDisplay() {
   display.textContent = currentValue;
@@ -12,16 +19,15 @@ function updateDisplay() {
   updateGuidance();
 }
 
-
 function updateGuidance() {
   if (currentValue === 'Error') {
-    guidanceEl.textContent = 'Presiona AC para comenzar de nuevo.';
+    guidanceEl.textContent = guidanceText.error;
   } else if (expression === '') {
     guidanceEl.textContent = shouldResetDisplay
-      ? 'Puedes seguir operando o pulsar AC.'
-      : 'Siguiente: ingresa un número y una operación.';
+      ? guidanceText.result
+      : guidanceText.idle;
   } else {
-    guidanceEl.textContent = 'Siguiente: ingresa el segundo número y pulsa =.';
+    guidanceEl.textContent = guidanceText.secondOperand;
   }
 }
 
@@ -68,7 +74,7 @@ function calculate() {
   if (expression === '') return;
   const fullExpr = expression + currentValue;
   expressionEl.textContent = fullExpr + ' =';
-  guidanceEl.textContent = 'Calculando...';
+  guidanceEl.textContent = guidanceText.calculating;
   try {
     const result = safeEval(fullExpr);
     if (!isFinite(result) || isNaN(result)) {
