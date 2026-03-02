@@ -1,5 +1,7 @@
 # calculadora-omar-benitez-o-calculadora-app
 
+Un web manifest es un archivo de texto en formato JSON que proporciona información sobre una aplicación web.
+
 Repositorio (código fuente):  
 https://github.com/omarbenitez-cmyk/calculadora-omar-benitez-o-calculadora-app
 
