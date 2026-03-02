@@ -9,6 +9,7 @@ https://omarbenitez-cmyk.github.io/calculadora-omar-benitez-o-calculadora-app/
 
 Archivos PWA principales de este proyecto:
 - /index.html
+- /manifest.webmanifest
 - /manifest.json
 - /sw.js
 - /icons/icon-192x192.png
